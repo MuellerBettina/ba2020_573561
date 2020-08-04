@@ -1,0 +1,51 @@
+{% extends 'blockit/base.html' %}
+
+{% load static %}
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/moment.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+<link rel="stylesheet" href="{% static "css/bootstrap-datetimepicker.min.css" %}">
+
+<script src="{% static "js/bootstrap-datetimepicker.min.js" %}"></script>
+
+{% block content %}
+    <div class="row">
+    <div class="row">
+    <button id="back" class="col-md-3" align="left" onclick=location.href='?n={{ way.0 }}'>Last Week</span> </button>
+    <div align="center">
+        <strong class="col-md-6" id="year">{{ week.0 }} - {{ week.6 }} - {{ year }}</strong>
+    </div>
+    <button class="col-md-3" align="left" onclick=location.href='?n={{ way.1 }}'>Next Week</span> </button>
+    </div>
+    {% load filters %}
+    <div class="table-responsive" align="center">
+        <div class="col-md-12">
+            <table id="calendar" class="table">
+                <tr>
+                    <th></th>
+                    {% for day in week %}
+                    <th>{{day}}</th>
+                    {% endfor %}
+                </tr>
+                {% for i in range24 %}
+                <tr>
+                    <th>{{i}}:00</th>
+                    {% for j in range7 %}
+                        {# id is time-day for example 8-17 it means 17th day of month and time is 8 #}
+                        <td id={{i}}-{{week|lookup:j|slice:"0:2"}}></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "blockit/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+    <h4>My Timeblocks</h4>
+
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Length in minutes</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for block in timeblocklist %}
+                   {% if block.user_id == user.id %}
+                    <tr>
+                        <td>{{ block.name }}</td>
+                        <td>{{ block.length }}</td>
+                        <td>
+                            <a class="btn btn-outline-primary " href="{% url 'showTimeBlock' block.id %}" role="button">View/Edit</a>
+                            <a class="btn btn-outline-primary " href="#" role="button">Schedule</a>
+                            <a class="btn btn-outline-danger " href="{% url 'deleteTimeBlock' block.id %}" role="button">Delete</a>
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    <div class="container">
+        <a class="btn btn-warning " href="{% url 'addTimeBlock' %}" role="button">New Timeblock</a>
+    </div>
+{% endblock content %}

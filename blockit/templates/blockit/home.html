@@ -1,9 +1,26 @@
 {% extends 'blockit/base.html' %}
 
 {% block head %}
-    <title>Home</title>
+    <title>BlockIt - The best of both worlds</title>
 {% endblock %}
 
 {% block content %}
-<h1>BlockIt Homepage</h1>
+    <h3 align="center"> The Best of Both Worlds!</h3>
+    <p align="center"> BlockIt - An easy to use time management system.</p>
+
+    <p align="center"> Combining the best features of a calendar and a todo-list.</p>
+    <p align="center"> Time to plan your dreams!</p>
+    {% if user.is_authenticated %}
+        <p><br><br></p>
+        <p align="center">
+            Check out your personal calendar
+            <a class="btn btn-warning" href="{% url 'blockit:blockit-calendar'%}">My Calendar</a>
+            <br>
+            And start planning now!
+        </p>
+    {% else %}
+        <p align="center">
+            <a class="btn btn-warning" href="{% url 'register' %}">Got excited? Join BlockIt now</a>
+        </p>
+    {% endif %}
 {% endblock content %}

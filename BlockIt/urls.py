@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 
 import blockit
+from timeblocks.views import showTimeBlock
 from users import views as user_views
+from timeblocks import views as timeblock_views
 from blockit import views as blockit_views
 
 urlpatterns = [
@@ -26,6 +29,11 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('add/', timeblock_views.addTimeBlock, name='addTimeBlock'),
+    path('showTimeBlock/<int:block_id>/', timeblock_views.showTimeBlock, name='showTimeBlock'),
+    path('deleteTimeBlock/<int:block_id>/', timeblock_views.deleteTimeBlock, name='deleteTimeBlock'),
+    path('timeblocks/', timeblock_views.timeBlockList, name='timeBlockList'),
     #path('calendar/', include('blockit.urls')),
+    path('calendar/', include('Cal.urls')),
     path('', include('blockit.urls')),
 ]

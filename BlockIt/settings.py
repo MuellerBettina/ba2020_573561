@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blockit.apps.BlockitConfig',
     'users.apps.UsersConfig',
+    'timeblocks.apps.TimeblocksConfig',
+    'Cal.apps.CalConfig',
     'crispy_forms',
 ]
 
