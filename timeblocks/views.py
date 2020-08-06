@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+
+from Cal.models import Event
 from timeblocks.forms import TimeBlockForm
 from timeblocks.models import TimeBlock, TimeBlockList
 from . import models
@@ -24,6 +26,15 @@ def deleteTimeBlock(request, block_id):
     timeblocklist = TimeBlockList.objects.all()
 
     return render(request, 'timeblocks/timeblocklist.html', {"timeblocklist": timeblocklist})
+
+def scheduleTimeBlock(request, block_id):
+    #here the Event becomes data from the timeblock
+
+    timeblock = TimeBlockList.objects.get(id=block_id)
+    my_event = Event.create("timeblock.name", "timeblock.user", )
+    Event.save()
+
+    return my_event
 
 @login_required
 def showTimeBlock(request, block_id):
