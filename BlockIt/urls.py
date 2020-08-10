@@ -32,7 +32,7 @@ urlpatterns = [
     path('add/', timeblock_views.addTimeBlock, name='addTimeBlock'),
     path('showTimeBlock/<int:block_id>/', timeblock_views.showTimeBlock, name='showTimeBlock'),
     path('deleteTimeBlock/<int:block_id>/', timeblock_views.deleteTimeBlock, name='deleteTimeBlock'),
-    path('scheduleTimeBlock/<int:block_id>/', timeblock_views.scheduleTimeBlock, name='scheduleTimeBlock'),
+    path('scheduleTimeBlock/<int:block_id>/', timeblock_views.ScheduleTimeBlock.as_view(template_name='timeblocks/pickdatetime.html'), name='scheduleTimeBlock'),
     path('timeblocks/', timeblock_views.timeBlockList, name='timeBlockList'),
     #path('calendar/', include('blockit.urls')),
     path('calendar/', include('Cal.urls')),

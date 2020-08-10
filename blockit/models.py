@@ -11,8 +11,8 @@ class Event(models.Model):
     description = models.CharField(max_length=200, unique=True)
     #length = models.IntegerField(blank=True, null=True)
     #created_date = models.DateTimeField(auto_now_add=True)
-    start_time = models.DateTimeField(default=timezone.now())
-    end_time = models.DateTimeField(default=timezone.now())
+    #start_time = models.DateTimeField(default=timezone.now())
+    #end_time = models.DateTimeField(default=timezone.now())
 
     @property
     def get_html_url(self):

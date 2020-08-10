@@ -23,7 +23,7 @@
                         <td>{{ block.length }}</td>
                         <td>
                             <a class="btn btn-outline-primary " href="{% url 'showTimeBlock' block.id %}" role="button">View/Edit</a>
-                            <a class="btn btn-outline-primary " href="#" data-toggle="modal" data-target="#myModal" role="button">Schedule</a>
+                            <a class="btn btn-outline-primary " href="{% url 'scheduleTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#myModal"{% endcomment %} role="button">Schedule</a>
                             <a class="btn btn-outline-danger " href="{% url 'deleteTimeBlock' block.id %}" role="button">Delete</a>
                         </td>
                     </tr>
@@ -54,28 +54,31 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5>Please choose a date and time</h5>
+                                <h5>When will your Timeblock start?</h5>
                             </div>
                             <div class="modal-body">
                                 <div class="container mt-5 mb-5" style="width: 400px">
-                                    <h6>Date Picker</h6>
+                                    <h6>Please choose a date and time</h6>
                                     <input type="text" id="picker" class="form-control">
+                                    <script>
+                                            $('#picker').datetimepicker({
+                                            timepicker: true,
+                                            datepicker: true,
+                                            format: 'Y-m-d H:i',
+                                            value: '2020-8-5 08:00',
+                                            weeks: true,
+                                            step: 5,
+                                            yearStart: 2020,
+                                            });
+                                    </script>
                                 </div>
-                                <script>
-                                    $('#picker').datetimepicker({
-                                        timepicker: true,
-                                        datepicker: true,
-                                        format: 'Y-m-d H:i',
-                                        value: '2020-8-5 08:00',
-                                        weeks: true,
-                                        step: 5,
-                                        yearStart: 2020,
-                                    })
-                                </script>
+
                             </div>
                             <div class="model-footer">
-                                <input class="btn btn-default" value="Ok">
-                                <input class="btn btn-default" value="Abort">
+                                <div class="container ml-3 mb-5">
+                                    <input class="btn btn-success " onclick="" value="Schedule">
+                                    <input class="btn btn-outline-danger" data-dismiss="modal" value="Abort">
+                                </div>
                             </div>
                         </div>
                     </div>
