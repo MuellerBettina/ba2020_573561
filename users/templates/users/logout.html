@@ -1,4 +1,10 @@
 {% extends "blockit/base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+    <title>BlockIt - Logout</title>
+{% endblock %}
 
 {% block content %}
        <h2>You have been logged out</h2>

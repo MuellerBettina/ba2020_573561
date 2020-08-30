@@ -3,6 +3,11 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block head %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+    <title>BlockIt - My Timeblocks</title>
+{% endblock %}
+
 {% block content %}
     <div class="container">
     <h4>My Timeblocks</h4>

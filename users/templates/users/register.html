@@ -1,8 +1,10 @@
 {% extends "blockit/base.html" %}
 
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block head %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
     <title>BlockIt - Sign Up</title>
 {% endblock %}
 
