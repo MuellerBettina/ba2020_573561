@@ -19,7 +19,7 @@ def index(request):
 
 
 class CalendarView(generic.ListView):
-    model = Event
+    model = Action
     template_name = 'blockit/calendar.html'
     #success_url = reverse_lazy("calendar")
 
@@ -54,11 +54,11 @@ def next_month(d):
     return month
 
 def event(request, event_id=None):
-    instance = Event()
+    instance = Action()
     if event_id:
-        instance = get_object_or_404(Event, pk=event_id)
+        instance = get_object_or_404(Action, pk=event_id)
     else:
-        instance = Event()
+        instance = Action()
 
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():

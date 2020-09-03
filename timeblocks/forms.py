@@ -7,7 +7,7 @@ from .widgets import DateTimePickerInput
 class TimeBlockForm(forms.ModelForm):
     class Meta:
         model = TimeBlockList
-        fields = ['name', 'description', 'length']
+        fields = ['name', 'description', 'length', 'color']
 
 
 class DateForm(forms.ModelForm):

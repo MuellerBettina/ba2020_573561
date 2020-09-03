@@ -22,7 +22,8 @@ import blockit
 from timeblocks.views import showTimeBlock
 from users import views as user_views
 from timeblocks import views as timeblock_views
-from blockit import views as blockit_views
+from Cal import views as cal_views
+#from blockit import views as blockit_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +35,7 @@ urlpatterns = [
     path('deleteTimeBlock/<int:block_id>/', timeblock_views.deleteTimeBlock, name='deleteTimeBlock'),
     path('scheduleTimeBlock/<int:block_id>/', timeblock_views.ScheduleTimeBlock.as_view(template_name='timeblocks/pickdatetime.html'), name='scheduleTimeBlock'),
     path('timeblocks/', timeblock_views.timeBlockList, name='timeBlockList'),
+    path('addEvent/', cal_views.addEvent, name='addEvent'),
     #path('calendar/', include('blockit.urls')),
     path('calendar/', include('Cal.urls')),
     path('', include('blockit.urls')),

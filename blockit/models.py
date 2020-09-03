@@ -5,14 +5,14 @@ from django.utils import timezone
 from django.urls import reverse
 import datetime
 
-class Event(models.Model):
+class Action(models.Model):
     name = models.CharField(max_length=20)
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=200, unique=True)
-    #length = models.IntegerField(blank=True, null=True)
-    #created_date = models.DateTimeField(auto_now_add=True)
-    #start_time = models.DateTimeField(default=timezone.now())
-    #end_time = models.DateTimeField(default=timezone.now())
+    length = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    start_time = models.DateTimeField(default=timezone.now())
+    end_time = models.DateTimeField(default=timezone.now())
 
     @property
     def get_html_url(self):

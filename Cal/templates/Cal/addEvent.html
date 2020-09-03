@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "blockit/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+    <title>BlockIt - Schedule new Timeblock</title>
+{% endblock head %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-warning" type="submit" name="save">Schedule</button>
+                <a class="btn btn-danger " href="{% url 'timeBlockList' %}" role="button">Dismiss</a>
+            </div>
+        </form>
+
+
+        </div>
+{% endblock content %}

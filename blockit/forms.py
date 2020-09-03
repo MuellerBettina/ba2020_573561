@@ -1,9 +1,9 @@
 from django.forms import ModelForm, DateInput
-from blockit.models import Event
+from blockit.models import Action
 
 class EventForm(ModelForm):
   class Meta:
-    model = Event
+    model = Action
     # datetime-local is a HTML5 input type, format to make date time show on fields
     widgets = {
       'start_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),

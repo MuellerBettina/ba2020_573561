@@ -1,13 +1,13 @@
-/*body{*/
-/*    background-color: white;*/
-/*    font-size: 25px;*/
-/*    padding: 5px;*/
-/*}*/
+body{
+    background-color: #fce850;
+    font-size: 25px;
+    padding: 5px;
+}
 
 table, td{
     table-layout: fixed;
     text-align: center;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 td:hover{
@@ -15,14 +15,15 @@ td:hover{
 }
 
 td a{
-    margin-bottom: 2px;
+    margin-top: -12px;
+    margin-bottom: 5px;
     align-items: center;
     display: block;
     width: 100%;
     line-height: 200%;
     background-color: #7E8F7C;
 }
-/*th{*/
-/*    font-size: 20px;*/
-/*    text-align: center;*/
-/*}*/
+th{
+    font-size: 20px;
+    text-align: center;
+}

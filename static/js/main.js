@@ -1,16 +1,16 @@
-// var table = document.getElementById("calendar");
-// if (table != null) {
-//     for (var i = 0; i < table.rows.length; i++) {
-//         for (var j = 0; j < table.rows[i].cells.length; j++)
-//         if(table.rows[i].cells[j].innerHTML=="")
-//         {
-//             table.rows[i].cells[j].onclick = function () {
-//             tableText(this);
-//             };
-//         }
-//
-//     }
-// }
+var table = document.getElementById("calendar");
+if (table != null) {
+    for (var i = 0; i < table.rows.length; i++) {
+        for (var j = 0; j < table.rows[i].cells.length; j++)
+        if(table.rows[i].cells[j].innerHTML=="")
+        {
+            table.rows[i].cells[j].onclick = function () {
+            tableText(this);
+            };
+        }
+
+    }
+}
 
 $("a").click(function(){
     tableText(this)

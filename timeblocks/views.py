@@ -17,9 +17,9 @@ def addTimeBlock(request):
         form = TimeBlockForm(request.POST)
         if form.is_valid():
             user = User.objects.get(id=request.user.id)
-            new_timeblock = TimeBlockList(name=request.POST['name'], user=user, length=request.POST['length'], description=request.POST['description'])
+            new_timeblock = TimeBlockList(name=request.POST['name'], user=user, length=request.POST['length'], description=request.POST['description'], color=request.POST['color'])
             new_timeblock.save()
-            return redirect('blockit:blockit-home')
+            return redirect("/timeblocks")
     else:
         form = TimeBlockForm()
     return render(request, 'timeblocks/timeblocks.html', {'form': form})
@@ -44,13 +44,17 @@ class ScheduleTimeBlock(CreateView):
             user = User.objects.get(id=request.user.id)
             starting_time = request.POST['date']
             starting_time_object = datetime.datetime.strptime(starting_time, '%Y-%m-%d %H:%M')
-            print(starting_time)
-            print(starting_time_object)
+            color = timeblock.color
+            just_date = starting_time_object.date()
             minutes_to_add = timeblock.length
             ending_time = starting_time_object + timedelta(minutes=minutes_to_add)
-            new_event = Event(title=timeblock.name, user=user, start_time=request.POST['date'], end_time=ending_time)
+            just_start_time = starting_time_object.time()
+            just_end_time = ending_time.time()
+            new_event = Event(title=timeblock.name, user=user, start_time=request.POST['date'], end_time=ending_time,
+                              the_date=just_date, the_start_time=just_start_time, the_end_time=just_end_time,
+                              color=color)
             new_event.save()
-            return redirect('blockit:blockit-home')
+            return redirect('timeBlockList')
         else:
             return render(request, self.template_name, {'form': form})
 

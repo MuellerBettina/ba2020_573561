@@ -1,6 +1,12 @@
 {% extends "blockit/base.html" %}
 
 {% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+    <title>BlockIt - New Timeblock</title>
+{% endblock head %}
 
 {% block content %}
     <div class="content-section">

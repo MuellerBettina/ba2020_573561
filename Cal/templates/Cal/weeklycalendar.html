@@ -1,30 +1,28 @@
 {% extends 'blockit/base.html' %}
-
 {% load static %}
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="{% static "js/jquery.min.js" %}"></script>
-<script src="{% static "js/moment.min.js" %}"></script>
-<script src="{% static "js/bootstrap.min.js" %}"></script>
-
-<link rel="stylesheet" href="{% static "css/bootstrap-datetimepicker.min.css" %}">
-
-<script src="{% static "js/bootstrap-datetimepicker.min.js" %}"></script>
-
 {% block head %}
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}" />
     <title>BlockIt - My Calendar</title>
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-    <div class="row">
-    <button id="back" class="col-md-3" align="left" onclick=location.href='?n={{ way.0 }}'>Last Week</span> </button>
     <div align="center">
-        <strong class="col-md-6" id="year">{{ week.0 }} - {{ week.6 }} - {{ year }}</strong>
+        <p class="col-md-6" id="year">{{ week.0 }} - {{ week.6 }} - {{ year }}</p>
     </div>
-    <button class="col-md-3" align="left" onclick=location.href='?n={{ way.1 }}'>Next Week</span> </button>
+    <div align="center">
+        <button id="back" class="btn btn-warning" onclick=location.href='?n={{ way.0 }}'>Last Week</button>
+        <a class="btn btn-warning " align="center" role="button" href="{% url 'addEvent' %}">Schedule new Timeblock</a>
+        <button class="btn btn-warning" align="right" onclick=location.href='?n={{ way.1 }}'>Next Week</button>
     </div>
+    <div class="row">
+    <p></p>
+    </div>
+
     {% load filters %}
     <div class="table-responsive" align="center">
         <div class="col-md-12">
@@ -45,12 +43,55 @@
                 </tr>
                 {% endfor %}
             </table>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
-
 {% endblock content %}
+{% block script %}
+<script type="text/javascript">
+    String.prototype.format = function() {
+        var str = this;
+        for (var i = 0; i < arguments.length; i++) {
+          var reg = new RegExp("\\{" + i + "\\}", "gm");
+          str = str.replace(reg, arguments[i]);
+        }
+        return str;
+      };
+
+    data = {{ events | safe }};
+    console.log(data)
+    for(i=0;i<data.length;i++){
+        for(j=parseInt(data[i].the_start_time);j<=parseInt(data[i].the_end_time);j++){
+            var str = "<a id={0} class={1} style=background-color:{2}>{3}</a>".format(data[i].id, data[i].id, data[i].color, data[i].title)
+            console.log(data[i].color)
+            if(parseInt(data[i].the_date)<10)
+            {
+                console.log("inside the if" + str)
+                jQuery("#"+j+"-0"+data[i].the_date).append(str);
+            }
+            else{
+                jQuery("#"+j+"-"+data[i].the_date).append(str);
+            }
+        };
+    };
+
+    {#$.ajax({#}
+    {#    url: "/calendar/" + this.name,#}
+    {#    type: 'post',#}
+    {#    data: {id :this.name,#}
+    {#        title: $("#title").val(),#}
+    {#        date: $("#date").val(),#}
+    {#        start_time: $("#start_time").val(),#}
+    {#        end_time: $("#end_time").val(),#}
+    {#        private: $("#private").is(":checked"),#}
+    {#        comment: $("#comment").val(),#}
+    {#        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() },#}
+    {#    success: function () {#}
+    {#        window.location.href = "/calendar/?" + "{{request.GET.urlencode}}";#}
+    {#    },#}
+    {#});#}
+</script>
+<script src="{% static "js/main.js" %}"></script>
+
+{% endblock script %}
+
