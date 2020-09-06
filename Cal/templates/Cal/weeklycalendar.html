@@ -8,6 +8,11 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
     <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}" />
     <title>BlockIt - My Calendar</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
@@ -46,6 +51,111 @@
             </div>
         </div>
     </div>
+
+{#    model for display of eventsoptions#}
+{#<div class="modal fade" id="modal-form" role="dialog">#}
+{#    <div class="modal-dialog">#}
+
+        <!-- Modal content-->
+{#        <div class="modal-content">#}
+{#        <div class="modal-header">#}
+{#            <button type="button" class="close" data-dismiss="modal">Close</button>#}
+{#            <h4 class="modal-title">Event</h4>#}
+{#        </div>#}
+{#        <div class="modal-body">#}
+{#            <form id="modal-form"> {% csrf_token %}#}
+{#            <div class="row">#}
+{#                    <div class="col-md-6">#}
+{#                        <label for="title">Title</label>#}
+{#            </div>#}
+{#            <div class="form-group col-md-6">#}
+{#                <input type="text" class="form-control" id="title" placeholder="Title">#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-md-6">#}
+{#                    <label for="datepicker">Date</label>#}
+{#                </div>#}
+{#                <div class="input-group date col-md-6" id="datepicker">#}
+{#                <input type="text" class="form-control" id="the_date" placeholder="Date">#}
+{#                <span class="input-group-addon">#}
+{#                    <span class="glyphicon glyphicon-calendar"></span>#}
+{#                </span>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-md-6">#}
+{#                    <label for="timepicker-start">Start Time</label>#}
+{#                </div>#}
+{#                <div class="input-group date col-md-6" id="timepicker-start">#}
+{#                    <input type='text' id="the_start_time" class="form-control" placeholder="Start Time" />#}
+{#                    <span class="input-group-addon">#}
+{#                        <span class="glyphicon glyphicon-time"></span>#}
+{#                    </span>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                    <div class="col-md-6">#}
+{#                        <label for="timepicker-end">Finish Time</label>#}
+{#                    </div>#}
+{#            <div class="input-group date col-md-6" id="timepicker-end">#}
+{#                <input type='text' id="the_end_time" class="form-control" placeholder="Finish Time" />#}
+{#                <span class="input-group-addon">#}
+{#                    <span class="glyphicon glyphicon-time"></span>#}
+{#                </span>#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                    <div class="col-md-6">#}
+{#                        <label for="color">Color</label>#}
+{#                    </div>#}
+{#            <div class="form-group col-md-6">#}
+{#                    <select class="form-control" id="color">#}
+{#                    <option value="#eeeeee">Gray</option>#}
+{#                    <option value="#ff0000">Red</option>#}
+{#                    <option value="#0000ff">Blue</option>#}
+{#                    <option value="#00ff00">Green</option>#}
+{#                    <option value="#000000">Black</option>#}
+{#                    <option value="#ffffff">White</option>#}
+{#                    <option value="#7E8F7C">Khaki</option>#}
+{#                </select>#}
+{#            </div>#}
+{#            </div>#}
+{#            <button id="submit" type="submit" class="btn btn-primary">Add</button>#}
+{#            </form>#}
+{#        </div>#}
+{#        <div class="modal-footer">#}
+{#            <button id="delete_button" name="" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>#}
+{#        </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="modal fade" id="delete_event_modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>Event</h5>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Do you want to delete this event?</h6>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="delete_button" name="" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 {% endblock content %}
 {% block script %}
 <script type="text/javascript">
@@ -59,14 +169,13 @@
       };
 
     data = {{ events | safe }};
-    console.log(data)
+
     for(i=0;i<data.length;i++){
         for(j=parseInt(data[i].the_start_time);j<=parseInt(data[i].the_end_time);j++){
             var str = "<a id={0} class={1} style=background-color:{2}>{3}</a>".format(data[i].id, data[i].id, data[i].color, data[i].title)
             console.log(data[i].color)
             if(parseInt(data[i].the_date)<10)
             {
-                console.log("inside the if" + str)
                 jQuery("#"+j+"-0"+data[i].the_date).append(str);
             }
             else{
@@ -74,6 +183,32 @@
             }
         };
     };
+
+    $("a").click(function () {
+        $.ajax({
+            url: "/calendar/get/" + this.id,
+            type: 'get',
+            success: function (data) {
+                console.log("we got here")
+                $("#delete_button").attr("name", data.id);
+                $("#delete_event_modal").modal('show');
+                $("#delete_event_modal").attr("eventId", data.id);
+            }
+        });
+    });
+
+    $("#delete_button").click(function () {
+        $.ajax({
+            url:"/calendar/delete/" + this.name,
+            type: 'get',
+            item: this.name,
+            success: function (data) {
+                $(".{0}".format(this.item)).remove();
+                window.location.href = "/calendar/?" + "{{ request.GET.urlencode }}";
+            }
+        })
+    })
+
 
     {#$.ajax({#}
     {#    url: "/calendar/" + this.name,#}

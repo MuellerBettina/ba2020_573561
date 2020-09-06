@@ -8,7 +8,7 @@ COLORS = [
     ('#76fc58', 'green'),
     ('#67b4fc', 'blue'),
     ('#b467fc', 'purple'),
-    ('#ffffff', 'white'),
+    ('#f9e2ae', 'beige'),
 ]
 
 class TimeBlockList(models.Model):

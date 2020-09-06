@@ -6,6 +6,16 @@
 {% block head %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
     <title>BlockIt - Schedule new Timeblock</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+    <script src="{% static 'datetimepicker-2.5.20/jquery.datetimepicker.full.js' %}"></script>
+
+    <link href="{% static 'datetimepicker-2.5.20/jquery.datetimepicker.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.structure.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
 {% endblock head %}
 
 {% block content %}
