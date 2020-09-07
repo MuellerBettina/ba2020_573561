@@ -5,23 +5,31 @@
 
 {% block head %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+    <script src="https://kit.fontawesome.com/55c490bbd8.js" crossorigin="anonymous"></script>
     <title>BlockIt - New Timeblock</title>
 {% endblock head %}
 
+
 {% block content %}
+
+    <div class="row">
+    <div class="col-md-6 align-items-center offset-md-3">
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
                 {{ form|crispy}}
             </fieldset>
-            <div class="form-group">
-                <button class="btn btn-warning" type="submit" name="save">Schedule Later</button>
-                <a class="btn btn-warning " href="{% url 'timeBlockList' %}" role="button">Schedule Now</a>
-                <a class="btn btn-danger " href="{% url 'timeBlockList' %}" role="button">Dismiss</a>
+            <div class="form-group" align="center">
+                <button class="btn btn-warning" type="submit" name="save">Schedule Later <i class="far fa-clock"></i></button>
+                <button class="btn btn-warning" type="submit" name="save and schedule">Schedule Now <i class="far fa-calendar-alt"></i></button>
+{#                <a class="btn btn-warning " href="{% url 'scheduleNewTimeBlock' %}" role="button">Schedule Now</a>#}
+                <a class="btn btn-danger " href="{% url 'timeBlockList' %}" role="button">Dismiss <i class="fas fa-times"></i></a>
             </div>
         </form>
 
 
         </div>
+        </div>
+    </div>
 {% endblock content %}

@@ -2,8 +2,10 @@ import datetime
 from datetime import timedelta
 
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from django.views.generic import CreateView
 import timeblocks
 from Cal.models import Event
@@ -13,15 +15,28 @@ from . import models
 
 @login_required
 def addTimeBlock(request):
-    if request.method == 'POST':
+    form = TimeBlockForm()
+    if request.method == 'POST' and 'save' in request.POST:
+        print("schedule later was pressed")
         form = TimeBlockForm(request.POST)
         if form.is_valid():
             user = User.objects.get(id=request.user.id)
             new_timeblock = TimeBlockList(name=request.POST['name'], user=user, length=request.POST['length'], description=request.POST['description'], color=request.POST['color'])
             new_timeblock.save()
             return redirect("/timeblocks")
-    else:
-        form = TimeBlockForm()
+        else:
+            form = TimeBlockForm()
+    elif request.method == 'POST' and 'save and schedule' in request.POST:
+        print("schedule now was pressed")
+        form = TimeBlockForm(request.POST)
+        if form.is_valid():
+            user = User.objects.get(id=request.user.id)
+            new_timeblock_to_be_scheduled = TimeBlockList(name=request.POST['name'], user=user, length=request.POST['length'], description=request.POST['description'], color=request.POST['color'])
+            new_timeblock_to_be_scheduled.save()
+            block_id = new_timeblock_to_be_scheduled.id
+            return HttpResponseRedirect(reverse('scheduleTimeBlock', kwargs={'block_id': block_id}))
+        else:
+            form = TimeBlockForm()
     return render(request, 'timeblocks/timeblocks.html', {'form': form})
 
 @login_required
@@ -54,6 +69,7 @@ class ScheduleTimeBlock(CreateView):
                               the_date=just_date, the_start_time=just_start_time, the_end_time=just_end_time,
                               color=color)
             new_event.save()
+            timeblock.delete()
             return redirect('timeBlockList')
         else:
             return render(request, self.template_name, {'form': form})
