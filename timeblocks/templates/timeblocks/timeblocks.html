@@ -1,12 +1,12 @@
 {% extends "blockit/base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% load static %}
 
 {% block head %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
     <script src="https://kit.fontawesome.com/55c490bbd8.js" crossorigin="anonymous"></script>
-    <title>BlockIt - New Timeblock</title>
+    <title>{% trans "BlockIt - New Timeblock" %}</title>
 {% endblock head %}
 
 
@@ -21,10 +21,10 @@
                 {{ form|crispy}}
             </fieldset>
             <div class="form-group" align="center">
-                <button class="btn btn-warning" type="submit" name="save">Schedule Later <i class="far fa-clock"></i></button>
-                <button class="btn btn-warning" type="submit" name="save and schedule">Schedule Now <i class="far fa-calendar-alt"></i></button>
+                <button class="btn btn-warning" type="submit" name="save">{% trans "Schedule Later " %}<i class="far fa-clock"></i></button>
+                <button class="btn btn-warning" type="submit" name="save and schedule">{% trans "Schedule Now " %}<i class="far fa-calendar-alt"></i></button>
 {#                <a class="btn btn-warning " href="{% url 'scheduleNewTimeBlock' %}" role="button">Schedule Now</a>#}
-                <a class="btn btn-danger " href="{% url 'timeBlockList' %}" role="button">Dismiss <i class="fas fa-times"></i></a>
+                <a class="btn btn-danger " href="{% url 'timeBlockList' %}" role="button">{% trans "Dismiss " %}<i class="fas fa-times"></i></a>
             </div>
         </form>
 

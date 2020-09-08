@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,18 +30,18 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                     {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'blockit:blockit-calendar' %}">My Calendar</a>
-                        <a class="nav-item nav-link" href="{% url 'timeBlockList' %}">My Timeblocks</a>
+                        <a class="nav-item nav-link" href="{% url 'blockit:blockit-calendar' %}">{% trans "My Calendar" %}</a>
+                        <a class="nav-item nav-link" href="{% url 'timeBlockList' %}">{% trans "My Timeblocks"%}</a>
                     {% endif %}
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{% url 'blockit:blockit-about' %}">About</a>
+                    <a class="nav-item nav-link" href="{% url 'blockit:blockit-about' %}">{% trans "About"%}</a>
                     {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
                     {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Sign Up</a>
+                        <a class="nav-item nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Sign Up"%}</a>
                     {% endif %}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 {% extends "blockit/base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% load static %}
 
@@ -16,7 +16,7 @@
     <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
 
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
-    <title>BlockIt - Pick a date and time</title>
+    <title>{% trans "BlockIt - Pick a date and time" %}</title>
 {% endblock head %}
 
 {% block content %}
@@ -24,11 +24,11 @@
 
     <div class="row">
         <div class="col-md-8 align-items-center offset-md-2">
-            <h2>Please pick a date and time</h2>
+            <h2>{% trans "Please pick a date and time" %}</h2>
             <form method="post" autocomplete="off" novalidate>
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="btn btn-success">Sumbit time</button>
+                <button type="submit" class="btn btn-success">{% trans "Sumbit time" %}</button>
             </form>
         </div>
     </div>

@@ -3,8 +3,43 @@
 {% block head %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
     <title>BlockIt - About</title>
+    <script src="https://kit.fontawesome.com/55c490bbd8.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
-    <h1>About Page</h1>
+    <h4 align="center">About BlockIt</h4>
+    <p align="center">BlockIt is an easy to use time management system created to make planning easy and enjoyable. </p>
+
+    <p align="center">Using the Timeblocking concept, BlockIt makes it easy for users to integrate their tasks into their calendar. <br> No need to write To-Do-List and never get anything done. <br> Thanks to BlockIt's scheduling option users are encouraged to schedule their tasks.</p>
+    <div class="content-section" align="center">
+        <h5 align="center">How to use BlockIt</h5>
+
+        <p>After registering you will have your personal Timeblocklist to store your tasks</p>
+
+        <img src="{% static 'img/Timeblockslist_preview.png' %}" style="border: 3px solid black">
+
+        <p>After clicking on "New Timeblock" you have the option to give your new task a name, a description, a duration and a color-tag.</p>
+
+        <img src="{% static 'img/Adding_a_timeblock_preview1.png' %}" style="border: 3px solid black">
+        <img src="{% static 'img/Calendar_preview.png' %}" style="border: 3px solid black">
+
+
+
+    </div>
+    <div class="content-section" align="center">
+        <h5 align="center">Outlook into the Future</h5>
+        <p> BlockIt is currently still under development. Features you can expect in the future: </p>
+
+        <ul>
+            <p><i class="fas fa-check-circle"></i>   Drag and Drop Function to move Calendar items</p>
+            <p><i class="fas fa-check-circle"></i>   Option to edit Calendar items from the calendar</p>
+            <p><i class="fas fa-check-circle"></i>   Create projects and add Timeblocks to your projects</p>
+        </ul>
+
+        <p> You have wishes that you would like to see implemented? </p>
+        <a class="btn btn-warning">Contact me</a>
+
+
+    </div>
+
 {% endblock content %}

@@ -1,11 +1,11 @@
 {% extends "blockit/base.html" %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% load static %}
 
 {% block head %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
-    <title>BlockIt - My Timeblocks</title>
+    <title>{% trans "BlockIt - My Timeblocks" %}</title>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -15,13 +15,13 @@
 
 {% block content %}
     <div class="container">
-    <h4 align="center">My Timeblocks</h4>
+    <h4 align="center">{% trans "My Timeblocks" %}</h4>
 
             <table class="table table-bordered ">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Length in minutes</th>
+                        <th scope="col">{% trans "Name" %}</th>
+                        <th scope="col">{% trans "Length in minutes" %}</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -32,9 +32,9 @@
                         <td>{{ block.name }}</td>
                         <td>{{ block.length }}</td>
                         <td>
-                            <a class="btn btn-outline-primary " href="{% url 'showTimeBlock' block.id %}" role="button">View/Edit <i class="far fa-eye"></i></a>
-                            <a class="btn btn-outline-primary " href="{% url 'scheduleTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#myModal"{% endcomment %} role="button">Schedule <i class="far fa-calendar-alt"></i></a>
-                            <a class="btn btn-outline-danger " href="{% url 'deleteTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#delete_sure" role="button"{% endcomment %}>Delete <i class="fas fa-trash-alt"></i></a>
+                            <a class="btn btn-outline-primary " href="{% url 'showTimeBlock' block.id %}" role="button">{% trans "View/Edit" %} <i class="far fa-eye"></i></a>
+                            <a class="btn btn-outline-primary " href="{% url 'scheduleTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#myModal"{% endcomment %} role="button">{% trans "Schedule" %} <i class="far fa-calendar-alt"></i></a>
+                            <a class="btn btn-outline-danger " href="{% url 'deleteTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#delete_sure" role="button"{% endcomment %}>{% trans "Delete" %} <i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endif %}
@@ -43,7 +43,7 @@
             </table>
     </div>
     <div class="container" align="center">
-        <a class="btn btn-warning " href="{% url 'addTimeBlock' %}" role="button">New Timeblock <i class="fas fa-plus"></i></a>
+        <a class="btn btn-warning " href="{% url 'addTimeBlock' %}" role="button">{% trans "New Timeblock" %} <i class="fas fa-plus"></i></a>
     </div>
 
     <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
@@ -95,11 +95,11 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5>When will your Timeblock start?</h5>
+                                <h5>{% trans "When will your Timeblock start?" %}</h5>
                             </div>
                             <div class="modal-body">
                                 <div class="container mt-5 mb-5" style="width: 400px">
-                                    <h6>Please choose a date and time</h6>
+                                    <h6>{% trans "Please choose a date and time" %}</h6>
                                     <input type="text" id="picker" class="form-control">
                                     <script>
                                             $('#picker').datetimepicker({

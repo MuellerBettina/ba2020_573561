@@ -1,1 +1,8 @@
-Django~=2.2.4
+asgiref==3.2.9
+Django==2.2.13
+django-crispy-forms==1.9.2
+django-weeklycalendar==0.1
+python-dateutil==2.8.1
+pytz==2020.1
+six==1.15.0
+sqlparse==0.3.1
