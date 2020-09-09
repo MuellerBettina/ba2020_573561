@@ -1,4 +1,5 @@
 from django.forms import ModelForm, DateInput
+from django import forms
 from blockit.models import Action
 
 class EventForm(ModelForm):
@@ -16,3 +17,15 @@ class EventForm(ModelForm):
     # input_formats parses HTML5 datetime-local input to datetime field
     self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',)
     self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)
+
+
+class ContactForm(forms.Form):
+  first_name = forms.CharField()
+  last_name = forms.CharField()
+  email = forms.EmailField(label='E-Mail')
+  subject = forms.CharField(required=False)
+  body = forms.CharField(widget=forms.Textarea)
+
+
+
+

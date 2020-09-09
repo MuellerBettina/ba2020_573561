@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block content %}
-    <h3 align="center">{% trans "The Best of Both Worlds!" %}</h3>
+    <h3 align="center" style="margin-bottom: 1em">{% trans "The Best of Both Worlds!" %}</h3>
     <p align="center"> {% trans "BlockIt - An easy to use time management system." %}</p>
 
     <p align="center">{% trans "Combining the best features of a calendar and a todo-list." %}</p>
-    <p align="center">{% trans "Time to plan your dreams!" %}</p>
+    <p align="center" style="margin-bottom: 2.5em">{% trans "Time to plan your dreams!" %}</p>
     {% if user.is_authenticated %}
         <p><br><br></p>
         <p align="center">
@@ -26,4 +26,12 @@
             <a class="btn btn-warning" href="{% url 'register' %}">{% trans "Got excited? Join BlockIt now" %}</a>
         </p>
     {% endif %}
+    <div class="container" align="left">
+        <div class="row">
+            <p style="margin-bottom: 5em"> &nbsp </p>
+        </div>
+        <div class="row">
+            <img src="{% static 'img/BlockIt_Logo_Full_Transparent_cut.png' %}">
+        </div>
+    </div>
 {% endblock content %}

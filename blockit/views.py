@@ -4,12 +4,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 
-from .forms import EventForm
+from .forms import EventForm, ContactForm
 from .utils import Calendar
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.safestring import mark_safe
 from django.views import generic
 from .models import *
+from django.core.mail import send_mail
 import calendar
 
 
@@ -68,6 +69,28 @@ def event(request, event_id=None):
 
 def home(request):
     return render(request, 'blockit/home.html', {})
+
+def contact(request):
+    form = ContactForm()
+    if request.method == "POST":
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        body = request.POST['body']
+
+        # send an email
+        send_mail(
+            subject + first_name + last_name,
+            body,
+            email,
+            ['MuellerBettina@pm.me'],
+        )
+
+        return render(request, 'blockit/contact.html', {'first_name': first_name})
+
+    else:
+        return render(request, 'blockit/contact.html', {'form': form})
 
 
 def about(request):

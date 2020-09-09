@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-08 18:26+0200\n"
+"POT-Creation-Date: 2020-09-09 17:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,75 @@ msgstr "Löschen"
 #: Cal/templates/Cal/weeklycalendar.html:73
 msgid "Close"
 msgstr "Schließen"
+
+#: blockit/templates/blockit/about.html:6
+msgid "BlockIt - About"
+msgstr "BlockIt - Über Uns"
+
+#: blockit/templates/blockit/about.html:11
+msgid "About BlockIt"
+msgstr "Über BlockIt"
+
+#: blockit/templates/blockit/about.html:12
+msgid ""
+"BlockIt is an easy to use time management system created to make planning "
+"enjoyable."
+msgstr ""
+"BlockIt ist ein nutzerfreundliches Zeitmanagementsystem mit dem Planen Spaß "
+"macht."
+
+#: blockit/templates/blockit/about.html:14
+msgid ""
+"Using the Timeblocking concept, BlockIt makes it easy for users to integrate "
+"their tasks into their calendar."
+msgstr ""
+"Das von BlockIt genutzte Timeblocking-Prinzip lässt Sie einfach Ihre "
+"Aufgaben in Ihrem Kalender integrieren."
+
+#: blockit/templates/blockit/about.html:14
+msgid "No need to write To-Do-List and never get anything done."
+msgstr "Kein Grund mehr To-Do-Listen zu schreiben und trotzdem nichts zu schaffen."
+
+#: blockit/templates/blockit/about.html:16
+msgid "How to use BlockIt"
+msgstr "Wie funktioniert BlockIt?"
+
+#: blockit/templates/blockit/about.html:18
+msgid "After registering you will have your personal Timeblocklist to store your "
+"tasks"
+msgstr "Nach der Anmeldung haben Sie eine persönliche Timeblock-Liste wo Sie Ihre Aufgaben speichern können"
+
+#: blockit/templates/blockit/about.html:22
+msgid "After clicking on "
+msgstr ""
+
+#: blockit/templates/blockit/about.html:31
+msgid "Outlook into the Future"
+msgstr "Ein Blick in die Zukunft"
+
+#: blockit/templates/blockit/about.html:32
+msgid "BlockIt is currently still under development. Features you can expect in the future: "
+msgstr "BlockIt befindet sich in stetiger Entwicklung. Optionen, die Sie in der Zukunft erwarten: "
+
+#: blockit/templates/blockit/about.html:35
+msgid "Drag and Drop Function to move Calendar items"
+msgstr "Bewegen der Kalendareinträge mit Drag-and-Drop"
+
+#: blockit/templates/blockit/about.html:36
+msgid "Option to edit Calendar items from the calendar"
+msgstr "Bearbeiten der Kalendareinträge im Kalendar"
+
+#: blockit/templates/blockit/about.html:37
+msgid "Create projects and add Timeblocks to your projects"
+msgstr "Erstellen von Projekten zu denen Timeblocks hinzugefügt werden können"
+
+#: blockit/templates/blockit/about.html:40
+msgid "You have wishes that you would like to see implemented? "
+msgstr "Sie haben Wünsche oder Vorschläge?"
+
+#: blockit/templates/blockit/about.html:41
+msgid "Contact me"
+msgstr "Kontaktieren Sie mich"
 
 #: blockit/templates/blockit/base.html:33
 #: blockit/templates/blockit/home.html:20
@@ -286,7 +355,7 @@ msgstr ""
 
 #: venv/lib/python3.7/site-packages/django/core/validators.py:165
 msgid "Enter a valid email address."
-msgstr ""
+msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: venv/lib/python3.7/site-packages/django/core/validators.py:239
