@@ -84,7 +84,7 @@ def contact(request):
             subject + first_name + last_name,
             body,
             email,
-            ['MuellerBettina@pm.me'],
+            ['blockitmail@gmail.com'],
         )
 
         return render(request, 'blockit/contact.html', {'first_name': first_name})
