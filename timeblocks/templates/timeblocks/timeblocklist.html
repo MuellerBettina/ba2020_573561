@@ -32,7 +32,7 @@
                         <td>{{ block.name }}</td>
                         <td>{{ block.length }}</td>
                         <td>
-                            <a class="btn btn-outline-primary " href="{% url 'showTimeBlock' block.id %}" role="button">{% trans "View/Edit" %} <i class="far fa-eye"></i></a>
+                            <a class="btn btn-outline-primary " href="{% url 'showTimeBlock' block.id %}" role="button">{% trans "View" %} <i class="far fa-eye"></i></a>
                             <a class="btn btn-outline-primary " href="{% url 'scheduleTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#myModal"{% endcomment %} role="button">{% trans "Schedule" %} <i class="far fa-calendar-alt"></i></a>
                             <a class="btn btn-outline-danger " href="{% url 'deleteTimeBlock' block.id %}" {% comment %}data-toggle="modal" data-target="#delete_sure" role="button"{% endcomment %}>{% trans "Delete" %} <i class="fas fa-trash-alt"></i></a>
                         </td>

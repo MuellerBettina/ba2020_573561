@@ -10,8 +10,8 @@
 
 {% block content %}
     {% if first_name %}
-        <h2>Thanks {{ first_name }}!</h2>
-        <p>We received your email and will respond soon!</p>
+        <h2>{% trans "Thanks" %} {{ first_name }}!</h2>
+        <p>{% trans "We received your email and will respond soon!"%}</p>
     {% else %}
         <div class="content-section">
             <form method="POST">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-09 17:18+0200\n"
+"POT-Creation-Date: 2020-09-10 18:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,28 +74,41 @@ msgstr ""
 
 #: blockit/templates/blockit/about.html:14
 msgid "No need to write To-Do-List and never get anything done."
-msgstr "Kein Grund mehr To-Do-Listen zu schreiben und trotzdem nichts zu schaffen."
+msgstr ""
+"Kein Grund mehr To-Do-Listen zu schreiben und trotzdem nichts zu schaffen."
 
 #: blockit/templates/blockit/about.html:16
 msgid "How to use BlockIt"
 msgstr "Wie funktioniert BlockIt?"
 
 #: blockit/templates/blockit/about.html:18
-msgid "After registering you will have your personal Timeblocklist to store your "
+msgid ""
+"After registering you will have your personal Timeblocklist to store your "
 "tasks"
-msgstr "Nach der Anmeldung haben Sie eine persönliche Timeblock-Liste wo Sie Ihre Aufgaben speichern können"
+msgstr ""
+"Nach der Anmeldung haben Sie eine persönliche Timeblock-Liste wo Sie Ihre "
+"Aufgaben speichern können."
 
 #: blockit/templates/blockit/about.html:22
-msgid "After clicking on "
+msgid ""
+"After clicking on 'New Timeblock' you have the option to give your new task "
+"a name, a description, a duration and a color-tag."
 msgstr ""
+"Nachdem Sie auf 'Neuer Timeblock' geklickt haben, haben Sie die Möglichkeit "
+"Ihrer neuen Aufgabe einen Namen, eine Beschreibung, eine Länge und eine "
+"Farbe zu geben."
 
 #: blockit/templates/blockit/about.html:31
 msgid "Outlook into the Future"
 msgstr "Ein Blick in die Zukunft"
 
 #: blockit/templates/blockit/about.html:32
-msgid "BlockIt is currently still under development. Features you can expect in the future: "
-msgstr "BlockIt befindet sich in stetiger Entwicklung. Optionen, die Sie in der Zukunft erwarten: "
+msgid ""
+"BlockIt is currently still under development. Features you can expect in the "
+"future: "
+msgstr ""
+"BlockIt befindet sich in stetiger Entwicklung. Optionen, die Sie in der "
+"Zukunft erwarten: "
 
 #: blockit/templates/blockit/about.html:35
 msgid "Drag and Drop Function to move Calendar items"
@@ -143,6 +156,37 @@ msgstr "Anmelden"
 #: users/templates/users/register.html:21
 msgid "Sign Up"
 msgstr "Registrieren"
+
+#: blockit/templates/blockit/contact.html:8
+#, fuzzy
+#| msgid "BlockIt - About"
+msgid "BlockIt - Contact"
+msgstr "BlockIt - Über Uns"
+
+#: blockit/templates/blockit/contact.html:13
+msgid "Thanks"
+msgstr "Danke"
+
+#: blockit/templates/blockit/contact.html:14
+msgid "We received your email and will respond soon!"
+msgstr ""
+"Wir haben Ihre Email bekommen und werden baldmöglichst auf Sie zurückkommen!"
+
+#: blockit/templates/blockit/contact.html:20
+msgid "Contact Me"
+msgstr "Kontaktieren Sie mich"
+
+#: blockit/templates/blockit/contact.html:24
+msgid "Send"
+msgstr "Senden"
+
+#: blockit/templates/blockit/contact.html:29
+msgid "Got here by accident?"
+msgstr "Aus Versehen hier?"
+
+#: blockit/templates/blockit/contact.html:29
+msgid "Back"
+msgstr "Zurück"
 
 #: blockit/templates/blockit/home.html:7
 msgid "BlockIt - The best of both worlds"
@@ -202,8 +246,8 @@ msgid "Length in minutes"
 msgstr "Länge in Minuten"
 
 #: timeblocks/templates/timeblocks/timeblocklist.html:35
-msgid "View/Edit"
-msgstr "Details/Bearbeiten"
+msgid "View"
+msgstr "Details"
 
 #: timeblocks/templates/timeblocks/timeblocklist.html:37
 msgid "Schedule"
